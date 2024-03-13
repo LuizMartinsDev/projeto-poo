@@ -1,13 +1,5 @@
 
-
-
 const prompt = require('prompt-sync')()
-
-
-
-
-
-
 class BancoDeDados {
     constructor() {
         this.listaDePessoas = [];
@@ -31,11 +23,11 @@ class BancoDeDados {
         console.log("Listando pessoas no BD...");
         if(this.listaDePessoas.length !== 0){
             this.listaDePessoas.forEach(pessoa => {
- // junção dos consoles.log em só um para ficar mais fácil de ler 
+ 
                 console.log("Nome:", pessoa.nome, "Idade:", pessoa.idade, "Email:", pessoa.email);
             });
         } else{
- // adição de um console.log para informar que não existe dados no banco (antes só aparecia a mensagem de cima)
+
             console.log('Não existe nenhuma pessoa no BD')
         }
         
@@ -141,7 +133,6 @@ class Menu {
     }
 
     exibirMenu() {
-// adição do do while para o menu rodar pelo menos uma vez e depois se o usuário não digitar 0 o menu não sumir
         let opcao;
         do{
         console.log("Menu:");
@@ -180,7 +171,7 @@ class Menu {
     }
 
     adicionarPessoa() {
-// puxando a classe pessoa e adicionando os dados nela
+
         const pessoa = new Pessoa();
         pessoa.nome = prompt("Digite o nome: ");
         pessoa.idade = parseInt(prompt("Digite a idade: "));
@@ -192,7 +183,7 @@ class Menu {
         const nomeAtual = prompt("Digite o nome da pessoa que deseja atualizar: ");
         const pessoaExistente = this.bancoDeDados.buscarPeloNome(nomeAtual);
         if (pessoaExistente) {
-// puxando a classe pessoa e adicionando os dados nela
+
             const novaPessoa = new Pessoa();
             novaPessoa.nome = prompt("Digite o novo nome: ");
             novaPessoa.idade = parseInt(prompt("Digite a nova idade: "));
@@ -202,7 +193,6 @@ class Menu {
     }
 
     buscarPeloNome() {
-// simplificação do método pois o método da Classe do banco já estava fazendo a ação
         const nome = prompt("Digite o nome da pessoa: ");
         this.bancoDeDados.buscarPeloNome(nome);
     }
